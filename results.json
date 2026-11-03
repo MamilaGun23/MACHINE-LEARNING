@@ -1,0 +1,259 @@
+{
+  "dataset": "UCI Iris via sklearn.datasets.load_iris",
+  "seed": 42,
+  "train_samples": 120,
+  "test_samples": 30,
+  "folds": 5,
+  "simulated_missingness": {
+    "rows": "0-9",
+    "feature": "sepal length (cm)",
+    "entries": 10
+  },
+  "feature_names": [
+    "sepal length (cm)",
+    "sepal width (cm)",
+    "petal length (cm)",
+    "petal width (cm)"
+  ],
+  "candidate_feasibility": [
+    {
+      "C": 0.01,
+      "selected_features_per_fold": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "valid": false
+    },
+    {
+      "C": 0.1,
+      "selected_features_per_fold": [
+        3,
+        3,
+        4,
+        3,
+        3
+      ],
+      "valid": true
+    },
+    {
+      "C": 1.0,
+      "selected_features_per_fold": [
+        3,
+        3,
+        4,
+        4,
+        3
+      ],
+      "valid": true
+    },
+    {
+      "C": 10.0,
+      "selected_features_per_fold": [
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "valid": true
+    }
+  ],
+  "best_params": {
+    "classifier__n_neighbors": 3,
+    "feature_selection__estimator__estimator__C": 0.1
+  },
+  "selected_features": [
+    "sepal width (cm)",
+    "petal length (cm)",
+    "petal width (cm)"
+  ],
+  "fitting_boundary_checks": "passed for every fold and the final training refit",
+  "models": [
+    {
+      "model": "Most frequent class",
+      "cv": {
+        "role": "fixed baseline CV",
+        "mean": 0.3333333333333333,
+        "std": 0.0
+      },
+      "accuracy": 0.3333333333333333,
+      "balanced_accuracy": 0.3333333333333333,
+      "macro_f1": 0.16666666666666666,
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          10,
+          0,
+          0
+        ]
+      ],
+      "classification_report": {
+        "setosa": {
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1-score": 0.5,
+          "support": 10.0
+        },
+        "versicolor": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 10.0
+        },
+        "virginica": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 10.0
+        },
+        "accuracy": 0.3333333333333333,
+        "macro avg": {
+          "precision": 0.1111111111111111,
+          "recall": 0.3333333333333333,
+          "f1-score": 0.16666666666666666,
+          "support": 30.0
+        },
+        "weighted avg": {
+          "precision": 0.1111111111111111,
+          "recall": 0.3333333333333333,
+          "f1-score": 0.16666666666666666,
+          "support": 30.0
+        }
+      }
+    },
+    {
+      "model": "KNN (k=3, no selection)",
+      "cv": {
+        "role": "fixed baseline CV",
+        "mean": 0.9666666666666668,
+        "std": 0.016666666666666653
+      },
+      "accuracy": 0.9333333333333333,
+      "balanced_accuracy": 0.9333333333333332,
+      "macro_f1": 0.9326599326599326,
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          10,
+          0
+        ],
+        [
+          0,
+          2,
+          8
+        ]
+      ],
+      "classification_report": {
+        "setosa": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 10.0
+        },
+        "versicolor": {
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1-score": 0.9090909090909091,
+          "support": 10.0
+        },
+        "virginica": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1-score": 0.8888888888888888,
+          "support": 10.0
+        },
+        "accuracy": 0.9333333333333333,
+        "macro avg": {
+          "precision": 0.9444444444444445,
+          "recall": 0.9333333333333332,
+          "f1-score": 0.9326599326599326,
+          "support": 30.0
+        },
+        "weighted avg": {
+          "precision": 0.9444444444444445,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9326599326599326,
+          "support": 30.0
+        }
+      }
+    },
+    {
+      "model": "Tuned L1 + KNN",
+      "cv": {
+        "role": "hyperparameter selection CV",
+        "mean": 0.9666666666666668,
+        "std": 0.016666666666666653
+      },
+      "accuracy": 0.9333333333333333,
+      "balanced_accuracy": 0.9333333333333332,
+      "macro_f1": 0.9333333333333332,
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          1,
+          9
+        ]
+      ],
+      "classification_report": {
+        "setosa": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 10.0
+        },
+        "versicolor": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1-score": 0.9,
+          "support": 10.0
+        },
+        "virginica": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1-score": 0.9,
+          "support": 10.0
+        },
+        "accuracy": 0.9333333333333333,
+        "macro avg": {
+          "precision": 0.9333333333333332,
+          "recall": 0.9333333333333332,
+          "f1-score": 0.9333333333333332,
+          "support": 30.0
+        },
+        "weighted avg": {
+          "precision": 0.9333333333333333,
+          "recall": 0.9333333333333333,
+          "f1-score": 0.9333333333333333,
+          "support": 30.0
+        }
+      }
+    }
+  ]
+}
